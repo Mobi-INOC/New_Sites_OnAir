@@ -194,7 +194,7 @@ iframe {
 [ Title form ]*/
 .login100-form-title {
   width: 100%;
-  position: relative;
+  /*! position: relative; */
   z-index: 1;
   display: -webkit-box;
   display: -webkit-flex;
