@@ -2,7 +2,7 @@
 <?php
 require_once ('PDO.php');
 
-$query = "SELECT * FROM `sites` ORDER BY id DESC";
+$query = "SELECT * FROM `sites` WHERE site_id='AMPLM1' ORDER BY `id`  DESC";
 
 $statement = $connect->prepare($query);
 

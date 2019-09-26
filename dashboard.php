@@ -67,8 +67,12 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">header</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">sssssss</div>
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Date</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php 
+                            date_default_timezone_set('Asia/Colombo');
+                            $time = date('Y-m-d');
+                            echo $time; 
+                            ?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -225,7 +229,7 @@ $(document).ready(function(){
                     html += '<td>'+data[count].npa_config_status+'</td>';
                     html += '<td>'+data[count].cs_config_status+'</td>';
                     html += '<td>'+data[count].pcn_config_status+'</td>';
-                    html += '<td>'+data[count].activated_date+'</td></tr>';
+                    html += '<td>'+data[count].activated_date+'</td><td></td><td></td></tr>';
                 }
                 $('tbody').html(html);
             }

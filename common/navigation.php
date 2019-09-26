@@ -13,7 +13,7 @@
     </a>
 
   <!-- Nav Item  -->
-  <li class="nav-item active">
+  <li class="nav-item">
     <a class="nav-link" href="index.html">
       <i class="fas fa-fw fa-tachometer-alt"></i>
       <span>Dashboard</span></a>
@@ -25,9 +25,9 @@
       <span>Charts</span></a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="tables.html">
+    <a class="nav-link" href="Site_Details_Table.php">
       <i class="fas fa-fw fa-table"></i>
-      <span>Tables</span></a>
+      <span>Site Details Log</span></a>
   </li>
 
   <!-- Divider -->
