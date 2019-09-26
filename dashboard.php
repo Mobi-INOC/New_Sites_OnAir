@@ -154,7 +154,7 @@
                     <th width="10%">Vendor</th>
                     <th width="5%">Site ID</th>
                     <th width="10%">Type</th>
-                    <th width="10%">Band</th>
+                    <th width="7%">Band</th>
                     <th width="10%">Site Name</th>
                     <th width="15%">Work Description</th> 
                     <th width="5%">PAT Status</th>
@@ -171,7 +171,7 @@
                     <th width="10%">Vendor</th>
                     <th width="5%">Site ID</th>
                     <th width="10%">Type</th>
-                    <th width="10%">Band</th>
+                    <th width="7%">Band</th>
                     <th width="10%">Site Name</th>
                     <th width="15%">Work Description</th> 
                     <th width="5%">PAT Status</th>
@@ -215,25 +215,28 @@ $(document).ready(function(){
                 for(var count = 0; count < data.length; count++)
                 {
                     html += '<tr>';
-                    html += '<td><input type="checkbox" id="'+data[count].id+'" data-date="'+data[count].date+'" data-cell="'+data[count].cell+'" data-site_name="'+data[count].site_name+'" data-technology="'+data[count].technology+'" data-requestor="'+data[count].requestor+'" data-reason="'+data[count].reason+'" data-block="'+data[count].block+'" data-block_remarks="'+data[count].block_remarks+'" data-deblock="'+data[count].deblock+'" data-deblock_remarks="'+data[count].deblock_remarks+'" class="check_box"  /></td>';
-                    html += '<td>'+data[count].date+'</td>';
-                    html += '<td>'+data[count].cell+'</td>';
+                    html += '<td><input type="checkbox" id="'+data[count].id+'" data-site_id="'+data[count].site_id+'" data-type="'+data[count].type+'" data-band="'+data[count].band+'" data-site_name="'+data[count].site_name+'" data-wp="'+data[count].wp+'" data-status="'+data[count].status+'" data-npa_config_status="'+data[count].npa_config_status+'" data-cs_config_status="'+data[count].cs_config_status+'" data-pcn_config_status="'+data[count].pcn_config_status+'" data-activated_date="'+data[count].activated_date+'" class="check_box"  /></td>';
+                    html += '<td>'+data[count].site_id+'</td>';
+                    html += '<td>'+data[count].type+'</td>';
+                    html += '<td>'+data[count].band+'</td>';
                     html += '<td>'+data[count].site_name+'</td>';
-                    html += '<td>'+data[count].technology+'</td>';
-                    html += '<td>'+data[count].requestor+'</td>';
-                    html += '<td>'+data[count].reason+'</td>';
-                    html += '<td>'+data[count].block+'</td>';
-                    html += '<td>'+data[count].block_remarks+'</td>';
-                    html += '<td>'+data[count].deblock+'</td>';
-                    html += '<td>'+data[count].deblock_remarks+'</td></tr>';
+                    html += '<td>'+data[count].wp+'</td>';
+                    html += '<td>'+data[count].status+'</td>';
+                    html += '<td>'+data[count].npa_config_status+'</td>';
+                    html += '<td>'+data[count].cs_config_status+'</td>';
+                    html += '<td>'+data[count].pcn_config_status+'</td>';
+                    html += '<td>'+data[count].activated_date+'</td></tr>';
                 }
                 $('tbody').html(html);
             }
         });
     }
-    //cell,site_name,technology,requestor,reason
-    //`block`, `block_by`, `block_time`, `block_remarks`, `deblock`, 
-    //`deblock_date`, `deblock_time`, `deblock_remarks`, `active
+    // `id`, `site_id`, `type`, `band`, `vendor`, `site_name`, `wp`, `status`, `defined_by`, `defined_date`, 
+    // `npa_config_status`, `npa_config_by`, `npa_config_date`, `cs_config_status`, `cs_config_by`, 
+    // `cs_config_date`, `pcn_config_status`, `pcn_config_by`, `pcn_config_date`, `region`, `activation_informed_by`,
+    //  `activated_date`, `activated_by`, `alarms_on_activation`, `sms`, `removed_date`, `removed_by`, `remarks`,
+    //   `npa_remark`, `cs_remark`, `pcn_remark`, `remove_remark`, `pat_pass`, `pat_by`, `pat_date`, `bsc`,
+    //    `technology`
     fetch_data();
 
     $(document).on('click', '.check_box', function(){
@@ -241,8 +244,8 @@ $(document).ready(function(){
         if(this.checked)
         {   
             
-            html = '<td><input type="checkbox" id="'+$(this).attr('id')+'" data-date="'+$(this).data('date')+'" data-cell="'+$(this).data('cell')+'" data-site_name="'+$(this).data('site_name')+'" data-technology="'+$(this).data('technology')+'" data-requestor="'+$(this).data('requestor')+'" data-reason="'+$(this).data('reason')+'" data-block="'+$(this).data('block')+'" data-block_remarks="'+$(this).data('block_remarks')+'" data-deblock="'+$(this).data('deblock')+'" data-deblock_remarks="'+$(this).data('deblock_remarks')+'" class="check_box" checked /></td>';
-            html += '<td><input type="hidden" name="date[]" class="form-control" value="'+$(this).data("date")+'" />'+$(this).data("date")+'</td>';
+            html = '<td><input type="checkbox" id="'+$(this).attr('id')+'" data-site_id="'+$(this).data('site_id')+'" data-cell="'+$(this).data('cell')+'" data-site_name="'+$(this).data('site_name')+'" data-technology="'+$(this).data('technology')+'" data-requestor="'+$(this).data('requestor')+'" data-reason="'+$(this).data('reason')+'" data-block="'+$(this).data('block')+'" data-block_remarks="'+$(this).data('block_remarks')+'" data-deblock="'+$(this).data('deblock')+'" data-deblock_remarks="'+$(this).data('deblock_remarks')+'" class="check_box" checked /></td>';
+            html += '<td><input type="hidden" name="site_id[]" class="form-control" value="'+$(this).data("date")+'" />'+$(this).data("date")+'</td>';
             html += '<td><input type="hidden" name="cell[]" class="form-control" value="'+$(this).data("cell")+'" />'+$(this).data("cell")+'</td>';
             html += '<td><input type="hidden" name="site_name[]" class="form-control" value="'+$(this).data("site_name")+'" />'+$(this).data("site_name")+'</td>';
             html += '<td><input type="hidden" name="technology[]" class="form-control" value="'+$(this).data("technology")+'" />'+$(this).data("technology")+'</td>';

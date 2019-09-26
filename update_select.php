@@ -2,7 +2,7 @@
 <?php
 require_once ('PDO.php');
 
-$query = "SELECT * FROM cbm_cell_block WHERE `block`='Pending..' OR `deblock`='pending..' ORDER BY date DESC";
+$query = "SELECT * FROM `sites` ORDER BY id DESC";
 
 $statement = $connect->prepare($query);
 
