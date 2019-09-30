@@ -78,6 +78,7 @@
                 <th >Site Name</th>
                 <th >Work Description</th> 
                 <th >PAT Status</th>
+                <th >Status Remark</th>
                 <th >NPA-Config Status</th>
                 <th>CS-Config Status</th>
                 <th >PCN-Config Status</th>
@@ -94,6 +95,7 @@
                 <th >Site Name</th>
                 <th >Work Description</th> 
                 <th >PAT Status</th>
+                <th >Status Remark</th>
                 <th >NPA-Config Status</th>
                 <th >CS-Config Status</th>
                 <th >PCN-Config Status</th>
@@ -117,6 +119,7 @@
                       $field5name = $row["site_name"];
                       $field6name = $row["wp"]; 
                       $field7name = $row["status"];
+                      $field71name = $row["status_remark"];
                       $field8name = $row["npa_config_status"];
                       $field9name = $row["cs_config_status"];
                       $field10name = $row["pcn_config_status"];
@@ -140,6 +143,7 @@
                                 <td>".$field5name."</td> 
                                 <td>".$field6name."</td>
                                 <td>".$field7name."</td> 
+                                <td>".$field71name."</td>
                                 <td>".$field8name."</td> 
                                 <td>".$field9name."</td> 
                                 <td>".$field10name."</td> 

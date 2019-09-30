@@ -14,18 +14,18 @@
 
   <!-- Nav Item  -->
   <li class="nav-item">
-    <a class="nav-link" href="index.html">
+    <a class="nav-link" href="dashboard.php">
       <i class="fas fa-fw fa-tachometer-alt"></i>
       <span>Dashboard</span></a>
   </li>
   <hr class="sidebar-divider">
   <li class="nav-item">
-    <a class="nav-link" href="charts.html">
+    <a class="nav-link" href="Excel_Exporter.php">
       <i class="fas fa-fw fa-chart-area"></i>
-      <span>Charts</span></a>
+      <span>Excel Exporter</span></a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="Site_Details_Table.php">
+    <a class="nav-link" href="Site_Details_Log.php">
       <i class="fas fa-fw fa-table"></i>
       <span>Site Details Log</span></a>
   </li>
