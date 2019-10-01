@@ -201,7 +201,7 @@
               </table>
             </div>
         </div>
-        
+
       </div>
       </form>
     </div>
@@ -234,7 +234,7 @@
               html += '<td>' + data[count].site_name + '</td>';
               html += '<td>' + data[count].wp + '</td>';
               html += '<td>' + data[count].status + '</td>';
-             // html += '<td>' + data[count].remark + '</td>';
+              // html += '<td>' + data[count].remark + '</td>';
               html += '<td>' + data[count].npa_config_status + '</td>';
               html += '<td>' + data[count].npa_remark + '</td>';
               html += '<td>' + data[count].cs_config_status + '</td>';
@@ -268,10 +268,10 @@
           //html += '<td><input type="hidden" name="remark[]" class="form-control" value="' + $(this).data("remark") + '" />' + $(this).data("remark") + '</td>';
 
 
-          if (($(this).data("status") == 'Pending..')) {
-            html += '<td><input type="hidden" name="npa_config_status[]" class="form-control" value="' + $(this).data("npa_config_status") + '" />' + $(this).data("npa_config_status") + '</td>';
-         
-         //   html += '<td><input type="hidden" name="status[]" class="form-control" value="Defined" />Defined</td>';
+          if (($(this).data("npa_config_status") == 'Pending..')) {
+             // html += '<td><input type="hidden" name="npa_config_status[]" class="form-control" value="' + $(this).data("npa_config_status") + '" />' + $(this).data("npa_config_status") + '</td>';
+            html += '<td><select class="form-control"><option value="' + $(this).data("npa_config_status") + '"selected>Choose...</option><option value="Yes">Yes</option><option value="No">No</option></select></td>';
+            //   html += '<td><input type="hidden" name="status[]" class="form-control" value="Defined" />Defined</td>';
             html += '<td><input type="text" name="npa_remark[]" class="form-control" value="' + $(this).data("npa_remark") + '" />' + $(this).data("npa_remark") + '</td>';
 
           } else {
@@ -279,7 +279,7 @@
             html += '<td><input type="hidden" name="npa_remark[]" class="form-control" value="' + $(this).data("npa_remark") + '" />' + $(this).data("npa_remark") + '</td>';
 
           }
-         
+
           html += '<td><input type="hidden" name="cs_config_status[]" class="form-control" value="' + $(this).data("cs_config_status") + '" />' + $(this).data("cs_config_status") + '</td>';
           html += '<td><input type="hidden" name="pcn_config_status[]" class="form-control" value="' + $(this).data("pcn_config_status") + '" />' + $(this).data("pcn_config_status") + '</td>';
           html += '<td><input type="hidden" name="activated_date[]" class="form-control" value="' + $(this).data("activated_date") + '" />' + $(this).data("activated_date") + '</td>';
@@ -290,7 +290,7 @@
 
 
         } else {
-          html = '<td><input type="checkbox" id="' + $(this).attr('id') + '" data-vendor="' + $(this).data('vendor') + '" data-site_id="' + $(this).data('site_id') + '" data-type="' + $(this).data('type') + '" data-band="' + $(this).data('band') + '" data-site_name="' + $(this).data('site_name') + '" data-wp="' + $(this).data('wp') + '" data-status="' + $(this).data('status') + '" data-npa_config_status="' + $(this).data('npa_config_status') + '" data-cs_config_status="' + $(this).data('cs_config_status') + '" data-pcn_config_status="' + $(this).data('pcn_config_status') + '" data-activated_date="' + $(this).data('activated_date') + '" class="check_box" /></td>';
+          html = '<td><input type="checkbox" id="' + $(this).attr('id') + '" data-vendor="' + $(this).data('vendor') + '" data-site_id="' + $(this).data('site_id') + '" data-type="' + $(this).data('type') + '" data-band="' + $(this).data('band') + '" data-site_name="' + $(this).data('site_name') + '" data-wp="' + $(this).data('wp') + '" data-status="' + $(this).data('status') + '" data-npa_config_status="' + $(this).data('npa_config_status') + '" data-npa_remark="' + $(this).data('npa_remark') + '"data-cs_config_status="' + $(this).data('cs_config_status') + '" data-pcn_config_status="' + $(this).data('pcn_config_status') + '" data-activated_date="' + $(this).data('activated_date') + '" class="check_box" /></td>';
           html += '<td>' + $(this).data('vendor') + '</td>';
           html += '<td>' + $(this).data('site_id') + '</td>';
           html += '<td>' + $(this).data('type') + '</td>';
@@ -300,13 +300,14 @@
           html += '<td>' + $(this).data('status') + '</td>';
           // html += '<td>' + $(this).data('remark') + '</td>';
           html += '<td>' + $(this).data('npa_config_status') + '</td>';
+          html += '<td>' + $(this).data('npa_remark') + '</td>';
           html += '<td>' + $(this).data('cs_config_status') + '</td>';
           html += '<td>' + $(this).data('pcn_config_status') + '</td>';
           html += '<td>' + $(this).data('activated_date') + '</td>';
           html += '<td></td>';
         }
         $(this).closest('tr').html(html);
-        $('#status'+$(this).attr('id')+'').val($(this).data('status'));
+        $('#status' + $(this).attr('id') + '').val($(this).data('status'));
         //  $('#deblock'+$(this).attr('id')+'').val($(this).data('deblock'));
       });
 
