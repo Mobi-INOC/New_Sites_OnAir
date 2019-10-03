@@ -88,11 +88,11 @@
             <div class="card-body">
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-success text-uppercase mb-1">header</div>
-                  <div class="h5 mb-0 font-weight-bold text-gray-800">ssssss</div>
+                  <div class="text-xs font-weight-bold text-success text-uppercase mb-1">On-air Site count</div>
+                  <div class="h5 mb-0 font-weight-bold text-gray-800">50</div>
                 </div>
                 <div class="col-auto">
-                  <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                  <i class="fas fa-calculator fa-2x text-gray-300"></i>
                 </div>
               </div>
             </div>
@@ -105,14 +105,14 @@
             <div class="card-body">
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-info text-uppercase mb-1">header</div>
+                  <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Progress</div>
                   <div class="row no-gutters align-items-center">
                     <div class="col-auto">
-                      <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">sss</div>
+                      <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"></div>
                     </div>
                     <div class="col">
                       <div class="progress progress-sm mr-2">
-                        <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                       </div>
                     </div>
                   </div>
@@ -131,8 +131,8 @@
             <div class="card-body">
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">header</div>
-                  <div class="h5 mb-0 font-weight-bold text-gray-800">ssssssssssss</div>
+                  <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending On-air Site count</div>
+                  <div class="h5 mb-0 font-weight-bold text-gray-800">10</div>
                 </div>
                 <div class="col-auto">
                   <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -167,12 +167,12 @@
                     <th>Site Name</th>
                     <th>Work Description</th>
                     <th>PAT Status</th>
-                    <th>Status Remark</th>
+                    <!-- <th>Status Remark</th> -->
                     <th>NPA-Config Status</th>
+                    <th>NPA Remark</th>
                     <th>CS-Config Status</th>
                     <th>PCN-Config Status</th>
                     <th>On Air</th>
-                    
                   </tr>
                 </thead>
                 <tfoot>
@@ -185,12 +185,12 @@
                     <th>Site Name</th>
                     <th>Work Description</th>
                     <th>PAT Status</th>
-                    <th>Status Remark</th>
+                    <!-- <th>Status Remark</th> -->
                     <th>NPA-Config Status</th>
+                    <th>NPA Remark</th>
                     <th>CS-Config Status</th>
                     <th>PCN-Config Status</th>
                     <th>On Air</th>
-                    
                   </tr>
                 </tfoot>
                 <tbody>
@@ -199,7 +199,7 @@
               </table>
             </div>
         </div>
-        
+
       </div>
       </form>
     </div>
@@ -224,7 +224,7 @@
             var html = '';
             for (var count = 0; count < data.length; count++) {
               html += '<tr>';
-              html += '<td><input type="checkbox" id="' + data[count].id + '" data-vendor="' + data[count].vendor + '" data-site_id="' + data[count].site_id + '" data-type="' + data[count].type + '" data-band="' + data[count].band + '" data-site_name="' + data[count].site_name + '" data-wp="' + data[count].wp + '" data-status="' + data[count].status + '" data-remark="' + data[count].remark + '" data-npa_config_status="' + data[count].npa_config_status + '" data-cs_config_status="' + data[count].cs_config_status + '" data-pcn_config_status="' + data[count].pcn_config_status + '" class="check_box"  /></td>';
+              html += '<td><input type="checkbox" id="' + data[count].id + '" data-vendor="' + data[count].vendor + '" data-site_id="' + data[count].site_id + '" data-type="' + data[count].type + '" data-band="' + data[count].band + '" data-site_name="' + data[count].site_name + '" data-wp="' + data[count].wp + '" data-status="' + data[count].status + '" data-npa_remark="' + data[count].npa_remark + '" data-npa_config_status="' + data[count].npa_config_status + '" data-cs_config_status="' + data[count].cs_config_status + '" data-pcn_config_status="' + data[count].pcn_config_status + '" data-activated_date="' + data[count].activated_date + '" data-on_air="' + data[count].on_air + '" class="check_box"  /></td>';
               html += '<td>' + data[count].vendor + '</td>';
               html += '<td>' + data[count].site_id + '</td>';
               html += '<td>' + data[count].type + '</td>';
@@ -232,8 +232,9 @@
               html += '<td>' + data[count].site_name + '</td>';
               html += '<td>' + data[count].wp + '</td>';
               html += '<td>' + data[count].status + '</td>';
-              html += '<td>' + data[count].remark + '</td>';
+              // html += '<td>' + data[count].remark + '</td>';
               html += '<td>' + data[count].npa_config_status + '</td>';
+              html += '<td>' + data[count].npa_remark + '</td>';
               html += '<td>' + data[count].cs_config_status + '</td>';
               html += '<td>' + data[count].pcn_config_status + '</td>';
               html += '<td></td></tr>';
@@ -254,34 +255,40 @@
         var html = '';
         if (this.checked) {
 
-          html = '<td><input type="checkbox" id="' + $(this).attr('id') + '" data-vendor="' + $(this).data('vendor') + '" data-site_id="' + $(this).data('site_id') + '" data-type="' + $(this).data('type') + '" data-band="' + $(this).data('band') + '" data-site_name="' + $(this).data('site_name') + '" data-wp="' + $(this).data('wp') + '" data-status="' + $(this).data('status') + '" data-remark="' + $(this).data('remark') + '" data-npa_config_status="' + $(this).data('npa_config_status') + '" data-cs_config_status="' + $(this).data('cs_config_status') + '" data-pcn_config_status="' + $(this).data('pcn_config_status') + '" class="check_box" checked /></td>';
+          html = '<td><input type="checkbox" id="' + $(this).attr('id') + '" data-vendor="' + $(this).data('vendor') + '" data-site_id="' + $(this).data('site_id') + '" data-type="' + $(this).data('type') + '" data-band="' + $(this).data('band') + '" data-site_name="' + $(this).data('site_name') + '" data-wp="' + $(this).data('wp') + '" data-status="' + $(this).data('status') + '" data-npa_remark="' + $(this).data('npa_remark') + '" data-npa_config_status="' + $(this).data('npa_config_status') + '" data-cs_config_status="' + $(this).data('cs_config_status') + '" data-pcn_config_status="' + $(this).data('pcn_config_status') + '" data-activated_date="' + $(this).data('activated_date') + '" data-on_air="' + $(this).data('on_air') + '" class="check_box" checked /></td>';
           html += '<td><input type="hidden" name="vendor[]" class="form-control" value="' + $(this).data("vendor") + '" />' + $(this).data("vendor") + '</td>';
           html += '<td><input type="hidden" name="site_id[]" class="form-control" value="' + $(this).data("site_id") + '" />' + $(this).data("site_id") + '</td>';
           html += '<td><input type="hidden" name="type[]" class="form-control" value="' + $(this).data("type") + '" />' + $(this).data("type") + '</td>';
           html += '<td><input type="hidden" name="band[]" class="form-control" value="' + $(this).data("band") + '" />' + $(this).data("band") + '</td>';
           html += '<td><input type="hidden" name="site_name[]" class="form-control" value="' + $(this).data("site_name") + '" />' + $(this).data("site_name") + '</td>';
           html += '<td><input type="hidden" name="wp[]" class="form-control" value="' + $(this).data("wp") + '" />' + $(this).data("wp") + '</td>';
+          html += '<td><input type="hidden" name="status[]" class="form-control" value="' + $(this).data("status") + '" />' + $(this).data("status") + '</td>';
+          //html += '<td><input type="hidden" name="remark[]" class="form-control" value="' + $(this).data("remark") + '" />' + $(this).data("remark") + '</td>';
 
 
-          if (($(this).data("status") == 'Pending..')) {
-            html += '<td><input type="hidden" name="status[]" class="form-control" value="Defined" />Defined</td>';
-            html += '<td><input type="text" name="remark[]" class="form-control" value="' + $(this).data("remark") + '" />' + $(this).data("remark") + '</td>';
+          if (($(this).data("on_air") == '0')) {
+             // html += '<td><input type="hidden" name="npa_config_status[]" class="form-control" value="' + $(this).data("npa_config_status") + '" />' + $(this).data("npa_config_status") + '</td>';
+            html += '<td><select name="npa_config_status[]" class="form-control"><option value="' + $(this).data("npa_config_status") + '"selected>Choose...</option><option value="Yes">Yes</option><option value="No">No</option></select></td>';
+            //   html += '<td><input type="hidden" name="status[]" class="form-control" value="Defined" />Defined</td>';
+            html += '<td><input type="text" name="npa_remark[]" class="form-control" value="' + $(this).data("npa_remark") + '" /></td>';
 
           } else {
-            html += '<td><input type="hidden" name="status[]" class="form-control" value="' + $(this).data("status") + '" />' + $(this).data("status") + '</td>';
-            html += '<td><input type="hidden" name="remark[]" class="form-control" value="' + $(this).data("remark") + '" />' + $(this).data("remark") + '</td>';
+            html += '<td><input type="hidden" name="npa_config_status[]" class="form-control" value="' + $(this).data("npa_config_status") + '" />' + $(this).data("npa_config_status") + '</td>';
+            html += '<td><input type="hidden" name="npa_remark[]" class="form-control" value="' + $(this).data("npa_remark") + '" />' + $(this).data("npa_remark") + '</td>';
 
           }
-          html += '<td><input type="hidden" name="npa_config_status[]" class="form-control" value="' + $(this).data("npa_config_status") + '" />' + $(this).data("npa_config_status") + '</td>';
+
           html += '<td><input type="hidden" name="cs_config_status[]" class="form-control" value="' + $(this).data("cs_config_status") + '" />' + $(this).data("cs_config_status") + '</td>';
           html += '<td><input type="hidden" name="pcn_config_status[]" class="form-control" value="' + $(this).data("pcn_config_status") + '" />' + $(this).data("pcn_config_status") + '</td>';
+          // html += '<td><input type="hidden" name="activated_date[]" class="form-control" value="' + $(this).data("activated_date") + '" />' + $(this).data("activated_date") + '</td>';
+
           html += '<td></td>';
 
           html += '<input type="hidden" name="hidden_id[]" value="' + $(this).attr('id') + '" /></td>';
 
 
         } else {
-          html = '<td><input type="checkbox" id="' + $(this).attr('id') + '" data-vendor="' + $(this).data('vendor') + '" data-site_id="' + $(this).data('site_id') + '" data-type="' + $(this).data('type') + '" data-band="' + $(this).data('band') + '" data-site_name="' + $(this).data('site_name') + '" data-wp="' + $(this).data('wp') + '" data-status="' + $(this).data('status') + '" data-npa_config_status="' + $(this).data('npa_config_status') + '" data-cs_config_status="' + $(this).data('cs_config_status') + '" data-pcn_config_status="' + $(this).data('pcn_config_status') + '" class="check_box" /></td>';
+          html = '<td><input type="checkbox" id="' + $(this).attr('id') + '" data-vendor="' + $(this).data('vendor') + '" data-site_id="' + $(this).data('site_id') + '" data-type="' + $(this).data('type') + '" data-band="' + $(this).data('band') + '" data-site_name="' + $(this).data('site_name') + '" data-wp="' + $(this).data('wp') + '" data-status="' + $(this).data('status') + '" data-npa_config_status="' + $(this).data('npa_config_status') + '" data-npa_remark="' + $(this).data('npa_remark') + '"data-cs_config_status="' + $(this).data('cs_config_status') + '" data-pcn_config_status="' + $(this).data('pcn_config_status') + '" data-activated_date="' + $(this).data('activated_date') + '" data-on_air="' + $(this).data('on_air') + '" class="check_box" /></td>';
           html += '<td>' + $(this).data('vendor') + '</td>';
           html += '<td>' + $(this).data('site_id') + '</td>';
           html += '<td>' + $(this).data('type') + '</td>';
@@ -289,21 +296,24 @@
           html += '<td>' + $(this).data('site_name') + '</td>';
           html += '<td>' + $(this).data('wp') + '</td>';
           html += '<td>' + $(this).data('status') + '</td>';
-          html += '<td>' + $(this).data('remark') + '</td>';
+          // html += '<td>' + $(this).data('remark') + '</td>';
           html += '<td>' + $(this).data('npa_config_status') + '</td>';
+          html += '<td>' + $(this).data('npa_remark') + '</td>';
           html += '<td>' + $(this).data('cs_config_status') + '</td>';
           html += '<td>' + $(this).data('pcn_config_status') + '</td>';
+          // html += '<td>' + $(this).data('activated_date') + '</td>';
           html += '<td></td>';
         }
         $(this).closest('tr').html(html);
-        $('#status'+$(this).attr('id')+'').val($(this).data('status'));
+        $('#npa_config_status' + $(this).attr('id') + '').val($(this).data('npa_config_status'));
+        //  $('#deblock'+$(this).attr('id')+'').val($(this).data('deblock'));
       });
 
       $('#update_form').on('submit', function(event) {
         event.preventDefault();
         if ($('.check_box:checked').length > 0) {
           $.ajax({
-            url: "multiple_update_RO.php",
+            url: "multiple_update.php",
             method: "POST",
             data: $(this).serialize(),
             success: function() {

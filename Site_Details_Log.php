@@ -119,7 +119,7 @@
                       $field5name = $row["site_name"];
                       $field6name = $row["wp"]; 
                       $field7name = $row["status"];
-                      $field71name = $row["status_remark"];
+                      $field71name = $row["remark"];
                       $field8name = $row["npa_config_status"];
                       $field9name = $row["cs_config_status"];
                       $field10name = $row["pcn_config_status"];
