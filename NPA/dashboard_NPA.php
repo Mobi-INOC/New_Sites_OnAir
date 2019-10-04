@@ -260,23 +260,17 @@
           html += '<td><input type="hidden" name="site_id[]" class="form-control" value="' + $(this).data("site_id") + '" />' + $(this).data("site_id") + '</td>';
           html += '<td><input type="hidden" name="type[]" class="form-control" value="' + $(this).data("type") + '" />' + $(this).data("type") + '</td>';
           html += '<td><input type="hidden" name="band[]" class="form-control" value="' + $(this).data("band") + '" />' + $(this).data("band") + '</td>';
-          html += '<td><input type="hidden" name="site_name[]" class="form-control" value="' + $(this).data("site_name") + '" />' + $(this).data("site_name") + '</td>';
+          // html += '<td><input type="hidden" name="site_name[]" class="form-control" value="' + $(this).data("site_name") + '" />' + $(this).data("site_name") + '</td>';
+          // html += '<td><input type="hidden" name="wp[]" class="form-control" value="' + $(this).data("wp") + '" />' + $(this).data("wp") + '</td>';
+          // html += '<td><input type="hidden" name="status[]" class="form-control" value="' + $(this).data("status") + '" />' + $(this).data("status") + '</td>';
+          // html += '<td><input type="hidden" name="remark[]" class="form-control" value="' + $(this).data("remark") + '" />' + $(this).data("remark") + '</td>';
+
+          html += '<td><input type="text" name="site_name[]" class="form-control" value="' + $(this).data("site_name") + '" />' + $(this).data("site_name") + '</td>';
           html += '<td><input type="hidden" name="wp[]" class="form-control" value="' + $(this).data("wp") + '" />' + $(this).data("wp") + '</td>';
           html += '<td><input type="hidden" name="status[]" class="form-control" value="' + $(this).data("status") + '" />' + $(this).data("status") + '</td>';
-          //html += '<td><input type="hidden" name="remark[]" class="form-control" value="' + $(this).data("remark") + '" />' + $(this).data("remark") + '</td>';
+          html += '<td><select name="npa_config_status[]" class="form-control"><option value="' + $(this).data("npa_config_status") + '"selected>Choose...</option><option value="Yes">Yes</option><option value="No">No</option></select></td>';
+          html += '<td><input type="text" name="npa_remark[]" class="form-control" value="' + $(this).data("npa_remark") + '" />' + $(this).data("npa_remark") + '</td>';
 
-
-          if (($(this).data("on_air") == '0')) {
-             // html += '<td><input type="hidden" name="npa_config_status[]" class="form-control" value="' + $(this).data("npa_config_status") + '" />' + $(this).data("npa_config_status") + '</td>';
-            html += '<td><select name="npa_config_status[]" class="form-control"><option value="' + $(this).data("npa_config_status") + '"selected>Choose...</option><option value="Yes">Yes</option><option value="No">No</option></select></td>';
-            //   html += '<td><input type="hidden" name="status[]" class="form-control" value="Defined" />Defined</td>';
-            html += '<td><input type="text" name="npa_remark[]" class="form-control" value="' + $(this).data("npa_remark") + '" /></td>';
-
-          } else {
-            html += '<td><input type="hidden" name="npa_config_status[]" class="form-control" value="' + $(this).data("npa_config_status") + '" />' + $(this).data("npa_config_status") + '</td>';
-            html += '<td><input type="hidden" name="npa_remark[]" class="form-control" value="' + $(this).data("npa_remark") + '" />' + $(this).data("npa_remark") + '</td>';
-
-          }
 
           html += '<td><input type="hidden" name="cs_config_status[]" class="form-control" value="' + $(this).data("cs_config_status") + '" />' + $(this).data("cs_config_status") + '</td>';
           html += '<td><input type="hidden" name="pcn_config_status[]" class="form-control" value="' + $(this).data("pcn_config_status") + '" />' + $(this).data("pcn_config_status") + '</td>';
@@ -301,7 +295,6 @@
           html += '<td>' + $(this).data('npa_remark') + '</td>';
           html += '<td>' + $(this).data('cs_config_status') + '</td>';
           html += '<td>' + $(this).data('pcn_config_status') + '</td>';
-          // html += '<td>' + $(this).data('activated_date') + '</td>';
           html += '<td></td>';
         }
         $(this).closest('tr').html(html);
@@ -313,7 +306,7 @@
         event.preventDefault();
         if ($('.check_box:checked').length > 0) {
           $.ajax({
-            url: "multiple_update.php",
+            url: "multiple_update_NPA.php",
             method: "POST",
             data: $(this).serialize(),
             success: function() {
