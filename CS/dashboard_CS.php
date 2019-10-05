@@ -281,7 +281,7 @@
 
 
         } else {
-          html = '<td><input type="checkbox" id="' + $(this).attr('id') + '" data-vendor="' + $(this).data('vendor') + '" data-site_id="' + $(this).data('site_id') + '" data-type="' + $(this).data('type') + '" data-band="' + $(this).data('band') + '" data-site_name="' + $(this).data('site_name') + '" data-wp="' + $(this).data('wp') + '" data-status="' + $(this).data('status') + '" data-npa_remark="' + $(this).data('npa_remark') + '" data-npa_config_status="' + $(this).data('npa_config_status') + '" data-cs_config_status="' + $(this).data('cs_config_status') + '" data-cs_remark="' + $(this).data('cs_remark') + '" data-pcn_config_status="' + $(this).data('pcn_config_status') + '" data-activated_date="' + $(this).data('activated_date') + '" data-on_air="' + $(this).data('on_air') + '" class="check_box" checked /></td>';
+          html = '<td><input type="checkbox" id="' + $(this).attr('id') + '" data-vendor="' + $(this).data('vendor') + '" data-site_id="' + $(this).data('site_id') + '" data-type="' + $(this).data('type') + '" data-band="' + $(this).data('band') + '" data-site_name="' + $(this).data('site_name') + '" data-wp="' + $(this).data('wp') + '" data-status="' + $(this).data('status') + '" data-remark="' + $(this).data('remark') + '"  data-npa_config_status="' + $(this).data('npa_config_status') + '" data-cs_config_status="' + $(this).data('cs_config_status') + '" data-cs_remark="' + $(this).data('cs_remark') + '" data-pcn_config_status="' + $(this).data('pcn_config_status') + '"  data-on_air="' + $(this).data('on_air') + '"  class="check_box" /></td>';
           html += '<td>' + $(this).data('vendor') + '</td>';
           html += '<td>' + $(this).data('site_id') + '</td>';
           html += '<td>' + $(this).data('type') + '</td>';
@@ -298,7 +298,7 @@
           html += '<td></td>';
         }
         $(this).closest('tr').html(html);
-        $('#npa_config_status' + $(this).attr('id') + '').val($(this).data('npa_config_status'));
+        $('#cs_config_status' + $(this).attr('id') + '').val($(this).data('cs_config_status'));
         //  $('#deblock'+$(this).attr('id')+'').val($(this).data('deblock'));
       });
 
