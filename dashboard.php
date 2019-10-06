@@ -198,30 +198,30 @@
 
                     date_default_timezone_set('Asia/Colombo');
 
+                    $field6name = $row["status"];
+                    $field7name = $row["npa_config_status"];
+                    $field8name = $row["cs_config_status"];
+                    $field9name = $row["pcn_config_status"];
+                    $field10name = $row["on_air"];
                     $date = date('Y-m-d H:i:s');
-                    $cell = $row[0];
-                    $site_name = $row[1];
-                    $technology = $row[2];
-                    // $requestor = $row[3];
-                    $requestor = $_SESSION['user_name'];
-                    $reason = $row[3];
+
+                    $vendor = $row[0];
+                    $site_id = $row[1];
+                    $type = $row[2];
+                    $band = $row[3];
+                    $site_name = $row[4];
+                    $wp = $row[5];
+                    $status = 'Pending..';
+                    $npa_config_status = 'Pending..';
+                    $cs_config_status = 'Pending..';
+                    $pcn_config_status = 'Pending..';
+                    $on_air = 'Pending..';
+                    //   $requestor = $_SESSION['user_name'];
 
                     $block = ucfirst($row[4]);
-                    $deblock = 'Pending..';
-                    $active = '1';
-
-                    if ($block == 'Block') {
-                      $block1 = 'Pending..';
+                   
                       $qry = "INSERT INTO `cbm_cell_block`(`date`, `cell`, `site_name`, `technology`, `requestor`, `reason`, `active`, `block`) VALUES ('$date','$cell','$site_name','$technology','$requestor','$reason','$active','$block1')";
-                    } else if ($block == 'Deblock') {
-                      //`id`, `date`, `cell`, `site_name`, `technology`, `requestor`, `reason`, `block`, `block_by`, `block_time`, `block_remarks`, `deblock`, `deblock_date`, `deblock_time`, `deblock_remarks`, `active`
-                      $block2 = 'Block';
-                      $qry = "INSERT INTO `cbm_cell_block`(`date`, `cell`, `site_name`, `technology`, `requestor`, `reason`, `active`, `block`, `deblock`) VALUES ('$date','$cell','$site_name','$technology','$requestor','$reason','$active','$block2','$deblock')";
-                      //echo $qry;
-                    } else {
-
-                      echo "error";
-                    }
+                   
 
 
 
@@ -258,11 +258,12 @@
           <table class="table table-bordered" width="100%" cellspacing="0">
             <thead style="background-color: aliceblue;">
               <tr>
-                <th>Cell </th>
-                <th>Site_name </th>
-                <th>Technology </th>
-                <th>Reason</th>
-                <th>Request Type</th>
+                <th>Vendor</th>
+                <th>Site ID</th>
+                <th>Type</th>
+                <th>Band</th>
+                <th>Site Name</th>
+                <th>Work Description</th>
               </tr>
             </thead>
 
@@ -272,8 +273,10 @@
               <td></td>
               <td></td>
               <td></td>
+              <td></td>
             </tr>
             <tr>
+              <td></td>
               <td></td>
               <td></td>
               <td></td>
@@ -359,8 +362,7 @@
                   <td>" . $field8name . "</td>
                   <td>" . $field9name . "</td>
                   <td>" . $field10name . "</td>
-                  <td><a onClick=\"return confirm('Are you sure you want to deblock?')\" href=\"deblock_Requestor.php?id=" . $row['id'] . "\" class='btn'><i class='fas fa-mail-bulk' style='font-size:20px;color:blue'></i></a>
-                  <a onClick=\"return confirm('Are you sure you want to delete?')\" href=\"delete_Requestor.php?id=" . $row['id'] . "\" class='btn'><i class='fa fa-window-close' style='font-size:20px;color:red'></i></a>
+                  <td><a onClick=\"return confirm('Are you sure you want to delete?')\" href=\"delete_new_site.php?id=" . $row['id'] . "\" class='btn'><i class='fa fa-window-close' style='font-size:20px;color:red'></i></a>
                   </td>
               </tr>";
             }
@@ -368,8 +370,7 @@
             $res->free();
           }
           ?></table><br>
-        <p style="margin-bottom: 2px;text-align: right;">Deblock Request Use &nbsp;&nbsp; <i class='fas fa-mail-bulk' style='font-size:18px;color:blue'></i>
-          &nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;Delete Request Use &nbsp;&nbsp;<i class='fa fa-window-close' style='font-size:18px;color:red'></i></p>
+        <p style="margin-bottom: 2px;text-align: right;">Delete New Site Use &nbsp;&nbsp;<i class='fa fa-window-close' style='font-size:18px;color:red'></i></p>
 
       </div>
     </div>
