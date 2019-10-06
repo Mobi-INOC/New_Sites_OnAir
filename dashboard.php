@@ -206,8 +206,8 @@
                     $date = date('Y-m-d H:i:s');
 
                     $vendor = $row[0];
-                    $site_id = $row[1];
-                    $type = $row[2];
+                    $site_id = strtoupper($row[1]);
+                    $type = strtoupper($row[2]);
                     $band = $row[3];
                     $site_name = $row[4];
                     $wp = $row[5];
@@ -218,14 +218,7 @@
                     $on_air = 'Pending..';
                     //   $requestor = $_SESSION['user_name'];
 
-                    $block = ucfirst($row[4]);
-                   
-                      $qry = "INSERT INTO `cbm_cell_block`(`date`, `cell`, `site_name`, `technology`, `requestor`, `reason`, `active`, `block`) VALUES ('$date','$cell','$site_name','$technology','$requestor','$reason','$active','$block1')";
-                   
-
-
-
-                    //$qry = "INSERT INTO `cbm_cell_block`(`date`, `cell`, `site_name`, `technology`, `requestor`, `reason`, `active`, `block`) VALUES ('$date','$cell','$site_name','$technology','$requestor','$reason','$active','$block')";
+                    $qry = "INSERT INTO `sites`(`vendor`,`site_id`, `type`, `band`, `site_name`, `wp`, `status`,`npa_config_status`, `cs_config_status`,`pcn_config_status`, `on_air`) VALUES ('$vendor','$site_id','$type','$band','$site_name','$wp','$status','$npa_config_status','$cs_config_status','$pcn_config_status','$on_air')";
                     $res = mysqli_query($con, $qry);
                   }
                   $count++;
@@ -284,9 +277,9 @@
               <td></td>
             </tr>
           </table>
-          <p style="margin-bottom: 2px;">Please give Request Type <b>Block</b> or <b>Deblock</b>
+          <!-- <p style="margin-bottom: 2px;">Please give Request Type <b>Block</b> or <b>Deblock</b>
             <div style="color: red;">*(As in the <b>Bold</b> format)</div>
-          </p>
+          </p> -->
 
         </div>
         <div class="col-xl-3 col-sm-6 mb-3">
@@ -295,6 +288,88 @@
       </div>
     </div>
   </div>
+
+  <!-- form --->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Single New Site Form</h6>
+    </div>
+    <div class="card-body">
+      <form method="post" action="">
+        <div class="form-row">
+          <div class="col-md-4 mb-3">
+            <label>Vendor :</label>
+            <input type="text" name="date" class="form-control" placeholder="<?php echo date("Y/m/d"); ?>" maxlength="10" readonly>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label>Site ID :</label>
+            <input type="text" name="cell" id="cell" class="form-control" placeholder="Cell Name" maxlength="25" style="text-transform: uppercase;" required>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label>Type :</label>
+            <input type="text" name="site" class="form-control" placeholder="Site Name" maxlength="35" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-4 mb-3">
+            <label>Band :</label>
+            <input type="text" name="technology" id="technology" class="form-control" placeholder="BSC/RNC/4G/3G" maxlength="10" style="text-transform: uppercase;" required>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label>Site Name :</label>
+            <input type="text" name="requestor" class="form-control" placeholder="<?php echo $_SESSION['user_name']; ?>" maxlength="40" readonly>
+          </div>
+          <div class="col-md-4 mb-3">
+           
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="col-md-12 mb-3">
+            <label>Work Description :</label>
+            <input type="text" name="reason" id="reason" class="form-control" placeholder="Reason" required>
+          </div>
+        </div>
+        <input class="btn btn-success" type=submit value="ADD" name="submit1">
+
+      </form>
+      <?php
+
+      if (isset($_POST['submit1'])) {
+        require_once('connect.php');
+        date_default_timezone_set('Asia/Colombo');
+        $date = date('Y-m-d H:i:s');
+        //$date = $_POST['date'];
+        $cell = $_POST['cell'];
+        $site_name = $_POST['site'];
+        $technology = $_POST['technology'];
+        $requestor = $_SESSION['user_name'];
+        $reason = $_POST['reason'];
+        $block = $_POST['block'];
+        $deblock = 'Pending..';
+        $active = '1';
+
+        if ($block == 'Block') {
+          $qry = "INSERT INTO `cbm_cell_block`(`date`, `cell`, `site_name`, `technology`, `requestor`, `reason`, `active`, `block`, `deblock`) VALUES ('$date','$cell','$site_name','$technology','$requestor','$reason','$active','$block','$deblock')";
+        } else {
+          //`id`, `date`, `cell`, `site_name`, `technology`, `requestor`, `reason`, `block`, `block_by`, `block_time`, `block_remarks`, `deblock`, `deblock_date`, `deblock_time`, `deblock_remarks`, `active`
+          $block1 = 'Pending..';
+          $qry = "INSERT INTO `cbm_cell_block`(`date`, `cell`, `site_name`, `technology`, `requestor`, `reason`, `active`, `block`) VALUES ('$date','$cell','$site_name','$technology','$requestor','$reason','$active','$block1')";
+          //echo $qry;
+        }
+        if (!mysqli_query($con, $qry)) {
+          die('Error: ' . mysqli_error());
+        }
+        echo "Your record added Successfull";
+      }
+
+
+      ?>
+
+
+    </div>
+  </div>
+
 
   <!-- DataTables  -->
   <div class="card shadow mb-4">
