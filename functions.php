@@ -91,7 +91,7 @@ function getUserById($id)
 {
 	global $con;
 	//$query = "SELECT * FROM users WHERE id=" . $id;
-	$query = "SELECT * FROM `cbm_user_account` WHERE `user_id`" . $id;
+	$query = "SELECT * FROM `user_account` WHERE `user_id`" . $id;
 	//SELECT * FROM `cbm_user_account` WHERE `user_id`
 	$result = mysqli_query($con, $query);
 
