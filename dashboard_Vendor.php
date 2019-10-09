@@ -118,10 +118,9 @@
                 <th>Site ID</th>
                 <th>Type</th>
                 <th>Band</th>
-                <th>Site Name</th>
                 <th>Work Description</th>
                 <th>PAT Status</th>
-                <!-- <th>Status Remark</th> -->
+                <th>Site Name</th>
                 <th>NPA-Config Status</th>
                 <th>NPA Remark</th>
                 <th>CS-Config Status</th>
@@ -136,10 +135,9 @@
                 <th>Site ID</th>
                 <th>Type</th>
                 <th>Band</th>
-                <th>Site Name</th>
                 <th>Work Description</th>
                 <th>PAT Status</th>
-                <!-- <th>Status Remark</th> -->
+                <th>Site Name</th>
                 <th>NPA-Config Status</th>
                 <th>NPA Remark</th>
                 <th>CS-Config Status</th>
@@ -183,10 +181,9 @@
             html += '<td>' + data[count].site_id + '</td>';
             html += '<td>' + data[count].type + '</td>';
             html += '<td>' + data[count].band + '</td>';
-            html += '<td>' + data[count].site_name + '</td>';
             html += '<td>' + data[count].wp + '</td>';
             html += '<td>' + data[count].status + '</td>';
-            // html += '<td>' + data[count].remark + '</td>';
+            html += '<td>' + data[count].site_name + '</td>';
             html += '<td>' + data[count].npa_config_status + '</td>';
             html += '<td>' + data[count].npa_remark + '</td>';
             html += '<td>' + data[count].cs_config_status + '</td>';
@@ -219,9 +216,9 @@
         // html += '<td><input type="hidden" name="status[]" class="form-control" value="' + $(this).data("status") + '" />' + $(this).data("status") + '</td>';
         // html += '<td><input type="hidden" name="remark[]" class="form-control" value="' + $(this).data("remark") + '" />' + $(this).data("remark") + '</td>';
 
-        html += '<td><input type="text" name="site_name[]" class="form-control" value="' + $(this).data("site_name") + '" />' + $(this).data("site_name") + '</td>';
         html += '<td><input type="hidden" name="wp[]" class="form-control" value="' + $(this).data("wp") + '" />' + $(this).data("wp") + '</td>';
         html += '<td><input type="hidden" name="status[]" class="form-control" value="' + $(this).data("status") + '" />' + $(this).data("status") + '</td>';
+        html += '<td><input type="text" name="site_name[]" class="form-control" value="' + $(this).data("site_name") + '" />' + $(this).data("site_name") + '</td>';
         html += '<td><select name="npa_config_status[]" class="form-control"><option value="' + $(this).data("npa_config_status") + '"selected>Choose...</option><option value="Yes">Yes</option><option value="No">No</option></select></td>';
         html += '<td><input type="text" name="npa_remark[]" class="form-control" value="' + $(this).data("npa_remark") + '" />' + $(this).data("npa_remark") + '</td>';
 
@@ -241,10 +238,10 @@
         html += '<td>' + $(this).data('site_id') + '</td>';
         html += '<td>' + $(this).data('type') + '</td>';
         html += '<td>' + $(this).data('band') + '</td>';
-        html += '<td>' + $(this).data('site_name') + '</td>';
         html += '<td>' + $(this).data('wp') + '</td>';
         html += '<td>' + $(this).data('status') + '</td>';
         // html += '<td>' + $(this).data('remark') + '</td>';
+        html += '<td>' + $(this).data('site_name') + '</td>';
         html += '<td>' + $(this).data('npa_config_status') + '</td>';
         html += '<td>' + $(this).data('npa_remark') + '</td>';
         html += '<td>' + $(this).data('cs_config_status') + '</td>';

@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 require_once('PDO.php');
@@ -9,7 +8,7 @@ if (isset($_POST['hidden_id'])) {
   $npa_config_status = $_POST['npa_config_status'];
   $npa_remark = $_POST['npa_remark'];
   //$defined_by = $_SESSION['user_name'];
-  $npa_config_by = 'Vendor';
+  $npa_config_by = $_SESSION['user_name'];
   $npa_config_date = date('Y-m-d H:i:s');
   $id = $_POST['hidden_id'];
 
@@ -30,6 +29,6 @@ if (isset($_POST['hidden_id'])) {
   
     $statement = $connect->prepare($query);
     $statement->execute($data);
-    header("Location: dashboard_Vendor.php");
+    header("Location: dashboard_NPA.php");
   }
 }

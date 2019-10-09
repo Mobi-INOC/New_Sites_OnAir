@@ -8,7 +8,7 @@ if (isset($_POST['hidden_id'])) {
   $npa_config_status = $_POST['npa_config_status'];
   $npa_remark = $_POST['npa_remark'];
   //$defined_by = $_SESSION['user_name'];
-  $npa_config_by = 'NPA';
+  $npa_config_by = $_SESSION['user_name'];
   $npa_config_date = date('Y-m-d H:i:s');
   $id = $_POST['hidden_id'];
 

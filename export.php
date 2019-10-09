@@ -47,31 +47,38 @@ if(isset($_POST['export'])){
     </tr>
     ";
 
-    // INSERT INTO `sites`(`id`, `date`, `site_id`, `type`, `band`, `vendor`, `site_name`, `wp`,
-    //  `status`, `remark`, `defined_by`, `defined_date`, `npa_config_status`, `npa_remark`, 
-    //  `npa_config_by`, `npa_config_date`, `cs_config_status`, `cs_config_by`, `cs_config_date`, 
-    //  `cs_remark`, `pcn_config_status`, `pcn_config_by`, `pcn_config_date`, `pcn_remark`, `region`, 
-    //  `activation_informed_by`, `on_air`, `activated_date`, `activated_by`, `alarms_on_activation`, 
-    //  `sms`, `removed_date`, `removed_by`, `remove_remark`, `pat_pass`, `pat_by`, `pat_date`, `bsc`, `technology`)
-
-    while($row = mysqli_fetch_array($result))
+     while($row = mysqli_fetch_array($result))
     {
                   $output .= "<tr> 
                                 <td>".$row['date']."</td> 
-                                <td>".$row['cell']."</td> 
-                                <td>".$row['site_name']."</td> 
-                                <td>".$row['technology']."</td> 
-                                <td>".$row['requestor']."</td> 
-                                <td>".$row['reason']."</td>
-                                <td>".$row['block']."</td> 
-                                <td>".$row['block_by']."</td> 
-                                <td>".$row['block_time']."</td> 
-                                <td>".$row['block_remarks']."</td> 
-                                <td>".$row['deblock']."</td> 
-                                <td>".$row['deblock_by']."</td>
-                                <td>".$row['deblock_time']."</td> 
-                                <td>".$row['deblock_remarks']."</td> 
-                                </tr>";
+                                <td>".$row['vendor']."</td> 
+                                <td>".$row['site_id']."</td> 
+                                <td>".$row['type']."</td> 
+                                <td>".$row['band']."</td> 
+                                <td>".$row['site_name']."</td>
+                                <td>".$row['wp']."</td> 
+                                <td>".$row['status']."</td> 
+                                <td>".$row['remark']."</td> 
+                                <td>".$row['defined_by']."</td> 
+                                <td>".$row['defined_date']."</td> 
+                                <td>".$row['npa_config_status']."</td>
+                                <td>".$row['npa_remark']."</td> 
+                                <td>".$row['npa_config_by']."</td> 
+                                <td>".$row['npa_config_date']."</td> 
+                                <td>".$row['cs_config_status']."</td> 
+                                <td>".$row['cs_config_by']."</td> 
+                                <td>".$row['cs_config_date']."</td> 
+                                <td>".$row['cs_remark']."</td> 
+                                <td>".$row['pcn_config_status']."</td> 
+                                <td>".$row['pcn_remark']."</td> 
+                                <td>".$row['pcn_config_by']."</td> 
+                                <td>".$row['pcn_config_date']."</td> 
+                                <td>".$row['activation_informed_by']."</td> 
+                                <td>".$row['on_air']."</td> 
+                                <td>".$row['activated_date']."</td> 
+                                <td>".$row['activated_by']."</td> 
+                                <td>".$row['sms']."</td> 
+                                 </tr>";
     }
     $output .= "</table>";
     header('Content-Type: application/xls');

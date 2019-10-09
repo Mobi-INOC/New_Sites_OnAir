@@ -8,7 +8,7 @@ date_default_timezone_set('Asia/Colombo');
  $status = $_POST['status'];
  $remark = $_POST['remark'];
  //$defined_by = $_SESSION['user_name'];
- $defined_by = 'RO';
+ $defined_by = $_SESSION['user_name'];
  $defined_date=date('Y-m-d H:i:s'); 
  $id = $_POST['hidden_id'];
 
@@ -17,7 +17,7 @@ date_default_timezone_set('Asia/Colombo');
   
    $data = array(
    
-   ':status'   => $status[$count],
+   ':status'   => $status[0],
    ':remark'  => $remark[0],
    ':defined_by'   => $defined_by,
    ':defined_date'   => $defined_date,
