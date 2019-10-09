@@ -31,7 +31,7 @@ date_default_timezone_set('Asia/Colombo');
  
   $statement = $connect->prepare($query);
   $statement->execute($data); 
-  header("Location: dashboard.php");
+  header("Location: dashboard_RO.php");
  }
  
 }

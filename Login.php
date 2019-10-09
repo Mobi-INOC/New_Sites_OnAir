@@ -135,6 +135,13 @@
                                     } else if ($logged_in_user['user_type'] == '7') {
                                         $_SESSION['user_name'] = $logged_in_user['user_name'];
                                         $_SESSION['user'] = $logged_in_user;
+                                        $_SESSION['user_type'] = "INOC";
+                                        $_SESSION['success']  = "You are now logged in";
+                                        header('location: dashboard_INOC.php');
+
+                                    } else if ($logged_in_user['user_type'] == '8') {
+                                        $_SESSION['user_name'] = $logged_in_user['user_name'];
+                                        $_SESSION['user'] = $logged_in_user;
                                         $_SESSION['user_type'] = "Vendor";
                                         $_SESSION['success']  = "You are now logged in";
                                         header('location: dashboard_Vendor.php');

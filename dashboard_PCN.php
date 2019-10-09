@@ -263,7 +263,7 @@
       event.preventDefault();
       if ($('.check_box:checked').length > 0) {
         $.ajax({
-          url: "multiple_update.php",
+          url: "multiple_update_PCN.php",
           method: "POST",
           data: $(this).serialize(),
           success: function() {
