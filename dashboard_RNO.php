@@ -151,6 +151,7 @@
                   if ($count > 0) {
 
                     date_default_timezone_set('Asia/Colombo');
+                    $date = date('Y-m-d H:i:s');
 
                     $vendor = $row[0];
                     $site_id = strtoupper($row[1]);
@@ -165,7 +166,7 @@
                     $on_air = 'Pending..';
                     //   $requestor = $_SESSION['user_name'];
 
-                    $qry = "INSERT INTO `sites`(`vendor`,`site_id`, `type`, `band`, `site_name`, `wp`, `status`,`npa_config_status`, `cs_config_status`,`pcn_config_status`, `on_air`) VALUES ('$vendor','$site_id','$type','$band','$site_name','$wp','$status','$npa_config_status','$cs_config_status','$pcn_config_status','$on_air')";
+                    $qry = "INSERT INTO `sites`(`date`,`vendor`,`site_id`, `type`, `band`, `site_name`, `wp`, `status`,`npa_config_status`, `cs_config_status`,`pcn_config_status`, `on_air`) VALUES ('$date','$vendor','$site_id','$type','$band','$site_name','$wp','$status','$npa_config_status','$cs_config_status','$pcn_config_status','$on_air')";
                     $res = mysqli_query($con, $qry);
                   }
                   $count++;
@@ -287,7 +288,7 @@
         date_default_timezone_set('Asia/Colombo');
         // $date = date('Y-m-d H:i:s');Vendor SiteID Type Band Site wp
         //$date = $_POST['date'];
-
+        $date = date('Y-m-d H:i:s');
         $vendor = $_POST['Vendor'];
         $site_id = strtoupper($_POST['SiteID']);
         $type = strtoupper($_POST['Type']);
@@ -300,7 +301,7 @@
         $pcn_config_status = 'Pending..';
         $on_air = 'Pending..';
 
-        $qry1 = "INSERT INTO `sites`(`vendor`,`site_id`, `type`, `band`, `site_name`, `wp`, `status`,`npa_config_status`, `cs_config_status`,`pcn_config_status`, `on_air`) VALUES ('$vendor','$site_id','$type','$band','$site_name','$wp','$status','$npa_config_status','$cs_config_status','$pcn_config_status','$on_air')";
+        $qry1 = "INSERT INTO `sites`(`date`,`vendor`,`site_id`, `type`, `band`, `site_name`, `wp`, `status`,`npa_config_status`, `cs_config_status`,`pcn_config_status`, `on_air`) VALUES ('$date','$vendor','$site_id','$type','$band','$site_name','$wp','$status','$npa_config_status','$cs_config_status','$pcn_config_status','$on_air')";
 
         if (!mysqli_query($con, $qry1)) {
           die('Error: ' . mysqli_error());
