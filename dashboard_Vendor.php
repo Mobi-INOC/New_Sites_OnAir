@@ -17,15 +17,13 @@
       <div align="left">
         <input type="submit" name="multiple_update" id="multiple_update" class="btn btn-info" value="Update" />
       </div>
-      <div align="middle">
-        <form method="post" action="update_select.php">
-          Search:<input type="text" name="Search_text" id="search" class="form-control-sm" placeholder="">
-          <input type="submit" name="Search" id="Search" class="btn btn-info" value="Search" />
-        </form>
+      <div align="right">
+        Search:<input type="text" name="search" id="search" class="form-control-sm" />
+
       </div>
 
 
-      
+
 
       <br />
       <div class="table-responsive">
@@ -87,10 +85,13 @@
 <script>
   $(document).ready(function() {
 
-    function fetch_data() {
+    function fetch_data(value) {
       $.ajax({
         url: "update_select.php",
         method: "POST",
+        data: {
+          value: value
+        },
         dataType: "json",
         success: function(data) {
           var html = '';
@@ -121,6 +122,16 @@
     //   `npa_remark`, `cs_remark`, `pcn_remark`, `remove_remark`, `pat_pass`, `pat_by`, `pat_date`, `bsc`,
     //    `technology`
     fetch_data();
+
+    $('#search').keyup(function() {
+      var search = $(this).val();
+      if (search != '') {
+        fetch_data(search);
+      } else {
+        fetch_data();
+      }
+    });
+
 
     $(document).on('click', '.check_box', function() {
       var html = '';
