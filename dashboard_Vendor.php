@@ -18,7 +18,7 @@
         <input type="submit" name="multiple_update" id="multiple_update" class="btn btn-info" value="Update" />
       </div>
       <div align="right">
-        Search:<input type="text" name="search" id="search" class="form-control-sm" />
+        Search : <input type="text" name="search" id="search" class="form-control-sm" />
 
       </div>
 

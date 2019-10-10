@@ -7,68 +7,71 @@
 <?php include 'common/top.php'; ?>
 
 
-  <!-- DataTales Example -->
-  <div class="card shadow mb-4">
-    <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary">Site Details Tables</h6>
-    </div>
-    <div class="card-body">
-      <form method="post" id="update_form">
-        <div align="left">
-          <input type="submit" name="multiple_update" id="multiple_update" class="btn btn-info" value="Update" />
-        </div>
-        <br />
-        <div class="table-responsive">
-          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-            <thead>
-              <tr>
-                <th></th>
-                <th>Vendor</th>
-                <th>Site ID</th>
-                <th>Type</th>
-                <th>Band</th>
-                <th>Site Name</th>
-                <th>Work Description</th>
-                <th>PAT Status</th>
-                <!-- <th>Status Remark</th> -->
-                <th>NPA-Config Status</th>
-                <!-- <th>NPA Remark</th> -->
-                <th>CS-Config Status</th>
-                <!-- <th>CS Remark</th> -->
-                <th>PCN-Config Status</th>
-                <th>PCN Remark</th>
-                <th>On Air</th>
-              </tr>
-            </thead>
-            <tfoot>
-              <tr>
-                <th></th>
-                <th>Vendor</th>
-                <th>Site ID</th>
-                <th>Type</th>
-                <th>Band</th>
-                <th>Site Name</th>
-                <th>Work Description</th>
-                <th>PAT Status</th>
-                <!-- <th>Status Remark</th> -->
-                <th>NPA-Config Status</th>
-                <!-- <th>NPA Remark</th> -->
-                <th>CS-Config Status</th>
-                <!-- <th>CS Remark</th> -->
-                <th>PCN-Config Status</th>
-                <th>PCN Remark</th>
-                <th>On Air</th>
-              </tr>
-            </tfoot>
-            <tbody>
-
-            </tbody>
-          </table>
-        </div>
-    </div>
-
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-primary">Site Details Tables</h6>
   </div>
-  </form>
+  <div class="card-body">
+    <form method="post" id="update_form">
+      <div align="left">
+        <input type="submit" name="multiple_update" id="multiple_update" class="btn btn-info" value="Update" />
+      </div>
+      <div align="right">
+        Search : <input type="text" name="search" id="search" class="form-control-sm" />
+      </div>
+      <br />
+      <div class="table-responsive">
+        <table class="table table-bordered" id="" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Vendor</th>
+              <th>Site ID</th>
+              <th>Type</th>
+              <th>Band</th>
+              <th>Site Name</th>
+              <th>Work Description</th>
+              <th>PAT Status</th>
+              <!-- <th>Status Remark</th> -->
+              <th>NPA-Config Status</th>
+              <!-- <th>NPA Remark</th> -->
+              <th>CS-Config Status</th>
+              <!-- <th>CS Remark</th> -->
+              <th>PCN-Config Status</th>
+              <th>PCN Remark</th>
+              <th>On Air</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <th></th>
+              <th>Vendor</th>
+              <th>Site ID</th>
+              <th>Type</th>
+              <th>Band</th>
+              <th>Site Name</th>
+              <th>Work Description</th>
+              <th>PAT Status</th>
+              <!-- <th>Status Remark</th> -->
+              <th>NPA-Config Status</th>
+              <!-- <th>NPA Remark</th> -->
+              <th>CS-Config Status</th>
+              <!-- <th>CS Remark</th> -->
+              <th>PCN-Config Status</th>
+              <th>PCN Remark</th>
+              <th>On Air</th>
+            </tr>
+          </tfoot>
+          <tbody>
+
+          </tbody>
+        </table>
+      </div>
+  </div>
+
+</div>
+</form>
 </div>
 <!-- /.container-fluid -->
 
@@ -82,10 +85,13 @@
 <script>
   $(document).ready(function() {
 
-    function fetch_data() {
+    function fetch_data(value) {
       $.ajax({
         url: "update_select.php",
         method: "POST",
+        data: {
+          value: value
+        },
         dataType: "json",
         success: function(data) {
           var html = '';
@@ -119,6 +125,16 @@
     //   `npa_remark`, `cs_remark`, `pcn_remark`, `remove_remark`, `pat_pass`, `pat_by`, `pat_date`, `bsc`,
     //    `technology`
     fetch_data();
+
+
+    $('#search').keyup(function() {
+      var search = $(this).val();
+      if (search != '') {
+        fetch_data(search);
+      } else {
+        fetch_data();
+      }
+    });
 
     $(document).on('click', '.check_box', function() {
       var html = '';

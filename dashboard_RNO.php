@@ -73,9 +73,10 @@
                     $cs_config_status = 'Pending..';
                     $pcn_config_status = 'Pending..';
                     $on_air = 'Pending..';
+                    $sms = 'Pending..';
                     //   $requestor = $_SESSION['user_name'];
 
-                    $qry = "INSERT INTO `sites`(`date`,`vendor`,`site_id`, `type`, `band`, `site_name`, `wp`, `status`,`npa_config_status`, `cs_config_status`,`pcn_config_status`, `on_air`) VALUES ('$date','$vendor','$site_id','$type','$band','$site_name','$wp','$status','$npa_config_status','$cs_config_status','$pcn_config_status','$on_air')";
+                    $qry = "INSERT INTO `sites`(`date`,`vendor`,`site_id`, `type`, `band`, `site_name`, `wp`, `status`,`npa_config_status`, `cs_config_status`,`pcn_config_status`, `on_air`, `sms`) VALUES ('$date','$vendor','$site_id','$type','$band','$site_name','$wp','$status','$npa_config_status','$cs_config_status','$pcn_config_status','$on_air','$sms')";
                     $res = mysqli_query($con, $qry);
                   }
                   $count++;
@@ -209,8 +210,9 @@
         $cs_config_status = 'Pending..';
         $pcn_config_status = 'Pending..';
         $on_air = 'Pending..';
+        $sms = 'Pending..';
 
-        $qry1 = "INSERT INTO `sites`(`date`,`vendor`,`site_id`, `type`, `band`, `site_name`, `wp`, `status`,`npa_config_status`, `cs_config_status`,`pcn_config_status`, `on_air`) VALUES ('$date','$vendor','$site_id','$type','$band','$site_name','$wp','$status','$npa_config_status','$cs_config_status','$pcn_config_status','$on_air')";
+        $qry1 = "INSERT INTO `sites`(`date`,`vendor`,`site_id`, `type`, `band`, `site_name`, `wp`, `status`,`npa_config_status`, `cs_config_status`,`pcn_config_status`, `on_air`, `sms`) VALUES ('$date','$vendor','$site_id','$type','$band','$site_name','$wp','$status','$npa_config_status','$cs_config_status','$pcn_config_status','$on_air','$sms')";
 
         if (!mysqli_query($con, $qry1)) {
           die('Error: ' . mysqli_error());
