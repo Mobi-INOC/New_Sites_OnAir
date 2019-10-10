@@ -7,62 +7,72 @@
 <?php include 'common/top.php'; ?>
 
 
-  <!-- DataTales Example -->
-  <div class="card shadow mb-4">
-    <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary">Site Details Tables</h6>
-    </div>
-    <div class="card-body">
-      <form method="post" id="update_form">
-        <div align="left">
-          <input type="submit" name="multiple_update" id="multiple_update" class="btn btn-info" value="Update" />
-        </div>
-        <br />
-        <div class="table-responsive">
-          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-            <thead>
-              <tr>
-                <th></th>
-                <th>Vendor</th>
-                <th>Site ID</th>
-                <th>Type</th>
-                <th>Band</th>
-                <th>Work Description</th>
-                <th>PAT Status</th>
-                <th>Site Name</th>
-                <th>NPA-Config Status</th>
-                <th>NPA Remark</th>
-                <th>CS-Config Status</th>
-                <th>PCN-Config Status</th>
-                <th>On Air</th>
-              </tr>
-            </thead>
-            <tfoot>
-              <tr>
-                <th></th>
-                <th>Vendor</th>
-                <th>Site ID</th>
-                <th>Type</th>
-                <th>Band</th>
-                <th>Work Description</th>
-                <th>PAT Status</th>
-                <th>Site Name</th>
-                <th>NPA-Config Status</th>
-                <th>NPA Remark</th>
-                <th>CS-Config Status</th>
-                <th>PCN-Config Status</th>
-                <th>On Air</th>
-              </tr>
-            </tfoot>
-            <tbody>
-
-            </tbody>
-          </table>
-        </div>
-    </div>
-
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-primary">Site Details Tables</h6>
   </div>
-  </form>
+  <div class="card-body">
+    <form method="post" id="update_form">
+      <div align="left">
+        <input type="submit" name="multiple_update" id="multiple_update" class="btn btn-info" value="Update" />
+      </div>
+      <div align="middle">
+        <form method="post" action="update_select.php">
+          Search:<input type="text" name="Search_text" id="search" class="form-control-sm" placeholder="">
+          <input type="submit" name="Search" id="Search" class="btn btn-info" value="Search" />
+        </form>
+      </div>
+
+
+      
+
+      <br />
+      <div class="table-responsive">
+        <table class="table table-bordered" id="" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Vendor</th>
+              <th>Site ID</th>
+              <th>Type</th>
+              <th>Band</th>
+              <th>Work Description</th>
+              <th>PAT Status</th>
+              <th>Site Name</th>
+              <th>NPA-Config Status</th>
+              <th>NPA Remark</th>
+              <th>CS-Config Status</th>
+              <th>PCN-Config Status</th>
+              <th>On Air</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <th></th>
+              <th>Vendor</th>
+              <th>Site ID</th>
+              <th>Type</th>
+              <th>Band</th>
+              <th>Work Description</th>
+              <th>PAT Status</th>
+              <th>Site Name</th>
+              <th>NPA-Config Status</th>
+              <th>NPA Remark</th>
+              <th>CS-Config Status</th>
+              <th>PCN-Config Status</th>
+              <th>On Air</th>
+            </tr>
+          </tfoot>
+          <tbody>
+
+          </tbody>
+        </table>
+      </div>
+  </div>
+
+</div>
+</form>
 </div>
 <!-- /.container-fluid -->
 
@@ -73,6 +83,7 @@
 
 
 <!--jQuary-->
+
 <script>
   $(document).ready(function() {
 

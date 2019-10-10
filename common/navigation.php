@@ -76,7 +76,20 @@
         <i class="fas fa-fw fa-table"></i>
         <span>Site Details Log</span></a>
     </li>
+    
+    <?php
+    if ($_SESSION['user_type'] == 'Admin') {
+      echo '<hr class="sidebar-divider">
+      <li class="nav-item">
+    <a class="nav-link" href="Registration.php">
+      <i class="fas fa-users"></i>
+      <span>Registration</span></a>
+  </li>';
+    } else{
+      
+    }
 
+    ?>
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 

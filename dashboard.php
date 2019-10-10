@@ -365,7 +365,7 @@
   event.preventDefault();
   if ($('.check_box:checked').length > 0) {
     $.ajax({
-      url: "multiple_update_RO.php",
+      url: "multiple_update.php",
       method: "POST",
       data: $(this).serialize(),
       success: function() {
