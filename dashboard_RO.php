@@ -141,7 +141,7 @@
         html += '<td><input type="hidden" name="site_name[]" class="form-control" value="' + $(this).data("site_name") + '" />' + $(this).data("site_name") + '</td>';
         html += '<td><input type="hidden" name="wp[]" class="form-control" value="' + $(this).data("wp") + '" />' + $(this).data("wp") + '</td>';
 
-        html += '<td><select name="status[]" class="form-control"><option value="' + $(this).data("status") + '"selected>Choose...</option><option value="Defined">Defined</option><option value="Pending..">Pending..</option></select></td>';
+        html += '<td><select name="status[]" class="form-control"><option value="' + $(this).data("status") + '"selected>Choose...</option><option value="Pass">Pass</option><option value="Fail">Fail</option><option value="Pending..">Pending..</option></select></td>';
         html += '<td><input type="text" name="remark[]" class="form-control" value="' + $(this).data("remark") + '" />' + $(this).data("remark") + '</td>';
 
         html += '<td><input type="hidden" name="npa_config_status[]" class="form-control" value="' + $(this).data("npa_config_status") + '" />' + $(this).data("npa_config_status") + '</td>';
